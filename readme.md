@@ -7,7 +7,7 @@ This project contains scripts that scapes content from the Coptic web sites to e
 
 ### `/settings.json`
 
-This file is a template for scraping settings. The actual file in production will have a reference to selenium server, and the target path to store CSV files. 
+This file is a template for scraping settings. The actual file in production will have a reference to selenium server, and the target path to store output files. 
 
 ### `/lib`
 
