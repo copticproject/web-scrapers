@@ -43,11 +43,12 @@ def getVideos(playlistId):
 
 
 output = Output('coptic-treasure.com', 'YouTube', 'Sermons', 'Video')
+output = Output()
 
 for playlist in getPlaylists():
     for video in getVideos(playlist['id']):
-        output.add('ar', video['title'], '', '', video['id'], 'البابا شنودة')
         print(video['title'])
+        output.add('ar', video['title'], '', '', video['id'], 'البابا شنودة', 'Video')
         # es.index(index='scraps', doc_type='blob', body={
         #     'source': {'party': 'Coptic Treasure', 'app': 'Youtube'},
         #     'type': {'mediaType': 'video', 'blobType': 'sermon'},
