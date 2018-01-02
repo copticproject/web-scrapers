@@ -1,4 +1,5 @@
 {
-  "youtube-app-key": ""
   "output-path": "data",
+  "selenium-remote": "http://127.0.0.1:4444/wd/hub",
+  "youtube-app-key": ""
 }

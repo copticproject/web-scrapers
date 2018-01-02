@@ -42,7 +42,6 @@ def getVideos(playlistId):
     return videos
 
 
-output = Output('coptic-treasure.com', 'YouTube', 'Sermons', 'Video')
 output = Output()
 
 for playlist in getPlaylists():

@@ -23,6 +23,11 @@ class Settings:
         return Settings.__settings['youtube-app-key']
 
 
+    @staticmethod
+    def getSeleniumRemote():
+        return Settings.__settings['selenium-remote']
+
+
     # Gets a path to a file relative to the project root folder
     @staticmethod
     def getFullPath(path):
