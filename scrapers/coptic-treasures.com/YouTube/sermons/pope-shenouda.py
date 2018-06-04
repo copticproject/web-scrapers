@@ -1,3 +1,4 @@
+import re
 from lib.youtube import YouTube
 from lib.output import Output
 
@@ -42,12 +43,29 @@ def getVideos(playlistId):
     return videos
 
 
+def extractInfoFromTitle(title):
+    match = re.match(r'(?:\d+.\s+)?' +
+                     r'(?P<title>.+)[ _-]+' +
+                     r'(?P<day>\d+)[ -]+(?P<month>\d+)[ -]+(?P<year>\d+)[ _-]+' +
+                     r'(?:(?P<venue>.+)[ _]+البابا|' +
+                     r'البابا شنودة\s?الثالث[ _]+(?P<venue_end>.+))',
+                     title)
+
+    if match:
+        print(match.group('title'))
+    # if not match:
+        # print('%s - %s/%s/%s - %s' % (match.group('title'), match.group('day'), match.group('month'), match.group('year'), match.group('venue')))
+    # else:
+    #     print(title)
+
+
 output = Output()
 
 for playlist in getPlaylists():
     for video in getVideos(playlist['id']):
-        print(video['title'])
+        extractInfoFromTitle(video['title'])
         output.add('ar', video['title'], '', '', video['id'], 'البابا شنودة', 'Video')
+        # exit(0)
         # es.index(index='scraps', doc_type='blob', body={
         #     'source': {'party': 'Coptic Treasure', 'app': 'Youtube'},
         #     'type': {'mediaType': 'video', 'blobType': 'sermon'},
